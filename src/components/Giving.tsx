@@ -25,7 +25,7 @@ const Giving = () => {
   return (
     <section id="giving" ref={sectionRef} className="relative min-h-screen bg-gradient-to-b from-black via-black to-[#001829] overflow-hidden">
       {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-[0.03]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03]"></div>
       
       {/* Subtle Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[120px]"></div>
