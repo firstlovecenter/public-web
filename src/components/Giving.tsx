@@ -23,12 +23,21 @@ const Giving = () => {
   }, []);
 
   return (
-    <section id="giving" ref={sectionRef} className="relative min-h-screen bg-gradient-to-b from-black via-black to-[#001829] overflow-hidden">
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03]"></div>
-      
-      {/* Subtle Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[120px]"></div>
+    <section id="giving" ref={sectionRef} className="relative min-h-screen bg-[linear-gradient(to_bottom,rgb(0,0,0),rgb(0,24,41))] overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        {/* Dark Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80"></div>
+        
+        {/* Radial Pattern */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        
+        {/* Center Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[100px]"></div>
+          <div className="absolute inset-0 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[100px] mix-blend-soft-light"></div>
+        </div>
+      </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
@@ -58,7 +67,7 @@ const Giving = () => {
               href="https://paystack.com/pay/firstlovecenter"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/10 hover:border-white/20 rounded-2xl text-white font-medium transition-all duration-300"
+              className="group inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 rounded-2xl text-white font-medium transition-all duration-300 backdrop-blur-sm"
             >
               <span>CLICK HERE TO GIVE</span>
               <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">

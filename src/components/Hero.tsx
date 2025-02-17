@@ -5,15 +5,17 @@ const Hero = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isContentVisible, setIsContentVisible] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [videoError, setVideoError] = useState(false);
 
   useEffect(() => {
     const video = document.querySelector('video');
     if (video) {
       video.play().catch((error) => {
         console.log("Video autoplay failed:", error);
+        setVideoError(true);
       });
     }
-    setTimeout(() => setIsContentVisible(true), 500);
+    setIsContentVisible(true);
   }, []);
 
   const scrollToNextSection = () => {
@@ -28,39 +30,47 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative h-screen bg-black">
-      {/* Background Video with Enhanced Effects */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/40 z-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black z-20"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_0%,rgba(0,0,0,0.8)_100%)] z-30"></div>
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className={`absolute w-full h-full object-cover ${
-            isVideoLoaded ? 'opacity-100' : 'opacity-0'
-          } transition-opacity duration-1000`}
-          onLoadedData={() => setIsVideoLoaded(true)}
-        >
-          <source src="/videos/background-video-1.webm" type="video/webm" />
-          Your browser does not support the video tag.
-        </video>
+    <div className="relative h-screen overflow-hidden bg-[linear-gradient(to_bottom,rgb(17,24,39),rgb(0,0,0))]">
+      {/* Background Layers */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]"></div>
+        <div className="absolute inset-0 backdrop-blur-[1px]"></div>
       </div>
 
-      {/* Animated Particles Overlay */}
-      <div className="absolute inset-0 z-30">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] animate-drift"></div>
+      {/* Video Background */}
+      {!videoError && (
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={`absolute w-full h-full object-cover transition-opacity duration-1000 ${
+              isVideoLoaded ? 'opacity-40' : 'opacity-0'
+            }`}
+            onLoadedData={() => setIsVideoLoaded(true)}
+            onError={() => setVideoError(true)}
+          >
+            <source src="/videos/background-video-1.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      )}
+
+      {/* Animated Particles */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:32px_32px] opacity-30 animate-drift"></div>
       </div>
 
       {/* Floating Gradient Orbs */}
-      <div className="absolute inset-0 overflow-hidden z-20 pointer-events-none">
-        <div className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-blue-500/20 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none mix-blend-soft-light">
+        <div className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-purple-500/30 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-blue-500/30 rounded-full blur-3xl animate-float-slow"></div>
       </div>
 
       {/* Main Content */}
-      <div className={`relative z-40 flex flex-col items-center justify-center h-full text-center px-4 transition-all duration-1000 ${
+      <div className={`relative z-10 flex flex-col items-center justify-center h-full text-center px-4 transition-all duration-1000 ${
         isContentVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
       }`}>
         <div className="max-w-5xl space-y-8">

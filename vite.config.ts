@@ -7,9 +7,22 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
   server: {
     port: 5173,
     host: true,
-  }
+    fs: {
+      strict: true,
+    },
+  },
+  preview: {
+    port: 5173,
+    host: true,
+  },
+  base: './',
 });
