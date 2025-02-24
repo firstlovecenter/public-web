@@ -10,6 +10,8 @@ import FirstLoveMusic from './components/FirstLoveMusic';
 import Giving from './components/Giving';
 import Footer from './components/Footer';
 import Global from './components/Global';
+import Salvation from './components/Salvation';
+import GetInvolved from './components/GetInvolved';
 
 // Scroll restoration component
 const ScrollToTop = () => {
@@ -52,6 +54,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainContent />} />
           <Route path="/global" element={<Global />} />
+          <Route path="/salvation" element={<Salvation />} />
+          <Route path="/get-involved" element={<GetInvolved />} />
         </Routes>
         <Footer />
       </div>

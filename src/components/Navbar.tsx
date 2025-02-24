@@ -10,10 +10,10 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const menuItems = [
-    { name: 'JESUS', href: '/#' },
+    { name: 'JESUS', href: '/salvation' },
     { name: 'WHO WE ARE', href: '/#who-we-are' },
     { name: 'GLOBAL', href: '/global' },
-    { name: 'GET INVOLVED', href: '/#' },
+    { name: 'GET INVOLVED', href: '/get-involved' },
     { name: 'GIVING', href: '/#giving' },
   ];
 
