@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { IconBrandFacebook, IconBrandInstagram, IconBrandX, IconBrandYoutube, IconBrandTiktok } from '@tabler/icons-react';
@@ -45,40 +45,62 @@ const Navbar = () => {
     }
   ];
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.querySelector(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleLogoClick = () => {
+    setIsOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleClick = (href: string) => {
     setIsOpen(false);
 
     if (href.startsWith('/#')) {
+      const sectionId = href.substring(1);
       if (location.pathname !== '/') {
         navigate('/');
-        setTimeout(() => {
-          const element = document.querySelector(href.substring(1));
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
+        // Wait for navigation and component mount
+        setTimeout(() => scrollToSection(sectionId), 100);
       } else {
-        const element = document.querySelector(href.substring(1));
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
+        scrollToSection(sectionId);
       }
     } else {
       navigate(href);
     }
   };
 
+  // Add effect to handle initial scroll when navigating directly to a section
+  useEffect(() => {
+    if (location.hash) {
+      // Wait for component mount
+      setTimeout(() => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
+
   return (
     <nav className="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center group" onClick={() => setIsOpen(false)}>
+            <button onClick={handleLogoClick} className="flex-shrink-0 flex items-center group">
               <div className="relative w-12 h-12">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-purple-500/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
                 <img src={logo} alt="First Love Church Logo" className="relative w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500" />
               </div>
-            </Link>
+            </button>
           </div>
           
           {/* Desktop Navigation */}
