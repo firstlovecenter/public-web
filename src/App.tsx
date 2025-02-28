@@ -7,11 +7,15 @@ import Founder from './components/Founder';
 import FirstLoveChannel from './components/FirstLoveChannel';
 import DagSermons from './components/DagSermons';
 import FirstLoveMusic from './components/FirstLoveMusic';
+import HealingJesus from './components/HealingJesus';
 import Giving from './components/Giving';
 import Footer from './components/Footer';
 import Global from './components/Global';
 import Salvation from './components/Salvation';
 import GetInvolved from './components/GetInvolved';
+import Events from './components/Events.tsx';
+import Connect from './components/Connect.tsx';
+import Location from './components/Location';
 
 // Scroll restoration component
 const ScrollToTop = () => {
@@ -37,6 +41,7 @@ const MainContent = () => {
         <FirstLoveChannel />
         <DagSermons />
         <FirstLoveMusic />
+        <HealingJesus />
         <Giving />
       </>
     );
@@ -56,6 +61,9 @@ function App() {
           <Route path="/global" element={<Global />} />
           <Route path="/salvation" element={<Salvation />} />
           <Route path="/get-involved" element={<GetInvolved />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/connect" element={<Connect />} />
+          <Route path="/location" element={<Location />} />
         </Routes>
         <Footer />
       </div>

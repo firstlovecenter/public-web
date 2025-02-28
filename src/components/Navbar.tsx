@@ -12,8 +12,13 @@ const Navbar = () => {
   const menuItems = [
     { name: 'JESUS', href: '/salvation' },
     { name: 'WHO WE ARE', href: '/#who-we-are' },
+    { name: 'EVENTS', href: '/events' },
+    { name: 'BOOKS', href: 'https://daghewardmillsbooks.org/new/', external: true },
     { name: 'GLOBAL', href: '/global' },
+    { name: 'OUR STORIES', href: '/#founder' },
     { name: 'GET INVOLVED', href: '/get-involved' },
+    { name: 'CONNECT', href: '/connect' },
+    { name: 'LOCATION', href: '/location' },
     { name: 'GIVING', href: '/#giving' },
   ];
 
@@ -60,21 +65,37 @@ const Navbar = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleClick = (href: string) => {
-    setIsOpen(false);
+  const handleClick = (href: string, external?: boolean) => {
+    if (external) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+      return;
+    }
 
-    if (href.startsWith('/#')) {
-      const sectionId = href.substring(1);
-      if (location.pathname !== '/') {
-        navigate('/');
-        // Wait for navigation and component mount
-        setTimeout(() => scrollToSection(sectionId), 100);
+    const isHashLink = href.startsWith('/#');
+    
+    if (isHashLink) {
+      const sectionId = href.replace('/#', '');
+      
+      if (location.pathname === '/') {
+        // Already on homepage, just scroll
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
       } else {
-        scrollToSection(sectionId);
+        // Navigate to homepage first, then scroll after a delay
+        navigate('/');
+        setTimeout(() => {
+          const section = document.getElementById(sectionId);
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
       }
     } else {
       navigate(href);
     }
+    setIsOpen(false);
   };
 
   // Add effect to handle initial scroll when navigating directly to a section
@@ -109,7 +130,7 @@ const Navbar = () => {
               {menuItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => handleClick(item.href)}
+                  onClick={() => handleClick(item.href, item.external)}
                   className={`relative text-sm font-medium text-white hover:text-purple-400 transition-colors duration-300 group ${
                     (item.href === '/global' && location.pathname === '/global') ? 'text-purple-400' : ''
                   }`}
@@ -164,7 +185,7 @@ const Navbar = () => {
               {menuItems.map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => handleClick(item.href)}
+                  onClick={() => handleClick(item.href, item.external)}
                   className={`block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-white/5 hover:text-purple-400 text-sm font-medium transition-all duration-300 ${
                     (item.href === '/global' && location.pathname === '/global') ? 'text-purple-400 bg-white/5' : ''
                   }`}
