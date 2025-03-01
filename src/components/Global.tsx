@@ -525,7 +525,7 @@ const Global = () => {
             </a>
             <div className="h-8 w-px bg-purple-500/20 hidden sm:block"></div>
             <a
-              href="mailto:info@firstlovecenter.org"
+              href="mailto:admin@firstlovecenter.com"
               className="group flex items-center gap-3 px-6 py-4 bg-[#111111] hover:bg-[#1a1a1a] border border-purple-500/20 hover:border-purple-500/40 rounded-2xl transition-all duration-300"
             >
               <div className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-500/10 group-hover:bg-purple-500/20 transition-colors duration-300">
@@ -535,7 +535,7 @@ const Global = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-white font-medium">Email Us</span>
-                <span className="text-sm text-gray-400 group-hover:text-gray-300">info@firstlovecenter.org</span>
+                <span className="text-sm text-gray-400 group-hover:text-gray-300">admin@firstlovecenter.com</span>
               </div>
             </a>
           </div>
