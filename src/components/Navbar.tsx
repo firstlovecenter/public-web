@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { IconBrandFacebook, IconBrandInstagram, IconBrandX, IconBrandYoutube, IconBrandTiktok } from '@tabler/icons-react';
-import logo from '../assets/images/FL-Logo.png';
+import logo from '/FL-Logo.png'; // Updated path to use the public directory
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
