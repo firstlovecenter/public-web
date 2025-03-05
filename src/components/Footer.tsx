@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Youtube, Twitter, ArrowUpRight } from 'lucide-react';
 import { useEffect, useRef } from 'react';
-import flLogo from '../assets/images/FL-Logo.png';
+import flLogo from '../assets/images/FL_Logo.png';
 
 const Footer = () => {
   const sectionRef = useRef<HTMLElement>(null);

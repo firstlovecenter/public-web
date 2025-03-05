@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import flLogo from '../assets/images/FL-Logo.png';
+import flLogo from '../assets/images/FL_Logo.png';
 
 const Connect = () => {
   useEffect(() => {
