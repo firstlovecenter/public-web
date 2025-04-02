@@ -17,6 +17,7 @@ import Events from './components/Events.tsx';
 import Connect from './components/Connect.tsx';
 import Location from './components/Location';
 import RedirectToGive from './components/RedirectToGive';
+import NotFound from './components/NotFound';
 
 // Scroll restoration component
 const ScrollToTop = () => {
@@ -68,11 +69,7 @@ function App() {
           <Route path="/give" element={<RedirectToGive />} />
           <Route
             path="*"
-            element={
-              <div className="text-white text-center mt-32 text-4xl font-bold">
-                404 - Page Not Found
-              </div>
-            }
+            element={<NotFound />}
           />
         </Routes>
         <Footer />
