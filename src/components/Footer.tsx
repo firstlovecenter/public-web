@@ -1,9 +1,11 @@
 import { Facebook, Instagram, Youtube, Twitter, ArrowUpRight } from 'lucide-react';
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import flLogo from '../assets/images/FL_Logo.png';
 
 const Footer = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,11 +34,11 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: 'About Us', href: '/#who-we-are' },
-    { name: 'Our Founder', href: '/#founder' },
-    { name: 'First Love Channel', href: '/#firstlovechannel' },
-    { name: 'First Love Music', href: '/#firstlovemusic' },
-    { name: 'Give', href: '/#giving' },
+    { name: 'About Us', path: '/#who-we-are' },
+    { name: 'Our Founder', path: '/#founder' },
+    { name: 'First Love Channel', path: '/#firstlovechannel' },
+    { name: 'First Love Music', path: '/#firstlovemusic' },
+    { name: 'Give', path: '/#giving' },
   ];
 
   const scrollToTop = () => {
@@ -109,8 +111,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <button
+                    onClick={() => navigate(link.path)}
                     className="group flex items-center text-gray-400 hover:text-white transition-colors duration-300 text-sm"
                   >
                     <span className="relative">
@@ -118,7 +120,7 @@ const Footer = () => {
                       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-full transition-all duration-300"></span>
                     </span>
                     <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -202,4 +204,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; 
+export default Footer;

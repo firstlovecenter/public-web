@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
 const NotFound = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="relative py-60 bg-black flex items-center justify-center">
       {/* Background Effects */}
@@ -24,16 +28,14 @@ const NotFound = () => {
           <p className="text-amber-300 mb-4">
             Take me back to familiar territory.
           </p>
-          <a 
-            href="/" 
+          <button
+            onClick={() => navigate('/')}
             className="inline-block px-6 py-3 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-all duration-200 border border-white/30"
           >
             Go Back Home
-          </a>
+          </button>
         </div>
       </div>
-
-     
     </div>
   );
 };
