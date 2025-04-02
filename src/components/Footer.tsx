@@ -32,11 +32,11 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: 'About Us', href: '#who-we-are' },
-    { name: 'Our Founder', href: '#founder' },
-    { name: 'First Love Channel', href: '#firstlovechannel' },
-    { name: 'First Love Music', href: '#firstlovemusic' },
-    { name: 'Give', href: '#giving' },
+    { name: 'About Us', href: '/#who-we-are' },
+    { name: 'Our Founder', href: '/#founder' },
+    { name: 'First Love Channel', href: '/#firstlovechannel' },
+    { name: 'First Love Music', href: '/#firstlovemusic' },
+    { name: 'Give', href: '/#giving' },
   ];
 
   const scrollToTop = () => {

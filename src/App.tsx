@@ -16,6 +16,7 @@ import GetInvolved from './components/GetInvolved';
 import Events from './components/Events.tsx';
 import Connect from './components/Connect.tsx';
 import Location from './components/Location';
+import RedirectToGive from './components/RedirectToGive';
 
 // Scroll restoration component
 const ScrollToTop = () => {
@@ -31,7 +32,7 @@ const ScrollToTop = () => {
 const MainContent = () => {
   const location = useLocation();
   
-  // Only show home page components if we're on the root path
+  // Only show home page ccomponents if we're on the root path
   if (location.pathname === '/') {
     return (
       <>
@@ -64,6 +65,15 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/connect" element={<Connect />} />
           <Route path="/location" element={<Location />} />
+          <Route path="/give" element={<RedirectToGive />} />
+          <Route
+            path="*"
+            element={
+              <div className="text-white text-center mt-32 text-4xl font-bold">
+                404 - Page Not Found
+              </div>
+            }
+          />
         </Routes>
         <Footer />
       </div>
