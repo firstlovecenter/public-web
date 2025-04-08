@@ -132,13 +132,13 @@ const Footer = () => {
               Service Times
             </h3>
             <ul className="space-y-4">
-              <li className="group">
+              {/* <li className="group">
                 <p className="font-medium text-white/90 text-sm mb-2">Saturday Services</p>
                 <div className="space-y-1.5 text-gray-400 text-sm">
                   <p>8:30 AM - Anagkazo Encounter</p>
                   <p>6:30 PM - Gospel Encounter</p>
                 </div>
-              </li>
+              </li> */}
               <li className="group">
                 <p className="font-medium text-white/90 text-sm mb-2">Sunday Services</p>
                 <div className="space-y-1.5 text-gray-400 text-sm">
