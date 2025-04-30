@@ -320,7 +320,7 @@ const Global = () => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-black/60 z-10"></div>
           <img 
-            src="/images/firstloveuk.jpg" 
+            src="/images/firstloveuk.webp" 
             alt="First Love Church Service" 
             className="absolute inset-0 w-full h-full object-cover object-center"
           />

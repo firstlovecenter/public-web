@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import flLogo from '../assets/images/FL_Logo.png';
+import flLogo from '../assets/images/FL_Logo.webp';
 
 const Connect = () => {
   useEffect(() => {
@@ -99,7 +99,7 @@ const Connect = () => {
               >
                 <div className="w-16 h-16 bg-[#1877F2] rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110">
                   <img 
-                    src="/images/social/facebook.png" 
+                    src="/images/social/facebook.webp" 
                     alt="Facebook" 
                     className="w-8 h-8"
                   />
@@ -113,7 +113,7 @@ const Connect = () => {
               >
                 <div className="w-16 h-16 bg-[#FF0000] rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110">
                   <img 
-                    src="/images/social/youtube.png" 
+                    src="/images/social/youtube.webp" 
                     alt="YouTube" 
                     className="w-8 h-8"
                   />
@@ -127,7 +127,7 @@ const Connect = () => {
               >
                 <div className="w-16 h-16 bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110">
                   <img 
-                    src="/images/social/instagram.png" 
+                    src="/images/social/instagram.webp" 
                     alt="Instagram" 
                     className="w-8 h-8"
                   />
@@ -141,7 +141,7 @@ const Connect = () => {
               >
                 <div className="w-16 h-16 bg-[#1DA1F2] rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110">
                   <img 
-                    src="/images/social/twitter.png" 
+                    src="/images/social/twitter.webp" 
                     alt="Twitter" 
                     className="w-8 h-8"
                   />

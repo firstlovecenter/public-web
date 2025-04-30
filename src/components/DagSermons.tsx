@@ -31,7 +31,7 @@ const DagSermons = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/images/dhm2.jpg"
+          src="/images/dhm2.webp"
           alt=""
           className="w-full h-full object-cover object-center opacity-75"
         />
@@ -64,7 +64,7 @@ const DagSermons = () => {
             <div className="block md:hidden -mt-4 -mb-8">
               <div className="relative max-w-[400px] mx-auto transform scale-125">
                 <img
-                  src="/images/dag_sermons_mockup.png"
+                  src="/images/dag_sermons_mockup.webp"
                   alt="Dag Sermons App Preview"
                   className="w-full h-auto drop-shadow-2xl"
                 />
@@ -114,7 +114,7 @@ const DagSermons = () => {
           <div className="hidden md:block relative animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000 delay-300 order-1 md:order-2">
             <div className="relative max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] mx-auto md:-mr-32 lg:-mr-48 xl:-mr-64">
               <img
-                src="/images/dag_sermons_mockup.png"
+                src="/images/dag_sermons_mockup.webp"
                 alt="Dag Sermons App Preview"
                 className="w-full h-auto transform hover:scale-105 transition-transform duration-700 drop-shadow-2xl"
               />

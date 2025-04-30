@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
-import flmBg from '../assets/images/FLM.jpeg';
-import flmLogo from '../assets/images/FL_white.png';
+import flmBg from '../assets/images/FLM.webp';
+import flmLogo from '../assets/images/FL_white.webp';
 
 const FirstLoveMusic = () => {
   const sectionRef = useRef<HTMLElement>(null);

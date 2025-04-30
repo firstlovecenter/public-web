@@ -38,7 +38,7 @@ const FirstLoveChannel = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/firstLove.jpg"
+          src="/images/firstLove.webp"
           alt=""
           className="w-full h-full object-cover opacity-75"
         />

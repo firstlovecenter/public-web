@@ -1,7 +1,7 @@
 import { Facebook, Instagram, Youtube, Twitter, ArrowUpRight } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import flLogo from '../assets/images/FL_Logo.png';
+import flLogo from '../assets/images/FL_Logo.webp';
 
 const Footer = () => {
   const sectionRef = useRef<HTMLElement>(null);

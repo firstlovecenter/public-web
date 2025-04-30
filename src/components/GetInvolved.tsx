@@ -41,7 +41,7 @@ const GetInvolved = () => {
       title: 'The Dancing Stars',
       subtitle: 'Express Worship Through Movement',
       description: 'Join our dynamic dance ministry where we express our worship through choreographed movements. The Dancing Stars are dedicated to glorifying God through the art of dance.',
-      images: ['DStars1.jpg', 'DStars2.jpg', 'DStars3.jpg', 'DStars4.jpg'],
+      images: ['DStars1.webp', 'DStars2.webp', 'DStars3.webp', 'DStars4.webp'],
       icon: IconStars,
       color: 'from-pink-500 to-purple-500'
     },
@@ -50,7 +50,7 @@ const GetInvolved = () => {
       title: 'The Greater Love Gospel Choir',
       subtitle: 'Voices United in Praise',
       description: "Be part of our award-winning choir that leads worship and ministers through powerful gospel music. GLGC is more than a choir; it's a family united in praise.",
-      images: ['GLGC1.jpg', 'GLGC2.jpg', 'GLGC3.jpg', 'GLGC4.jpg'],
+      images: ['GLGC1.webp', 'GLGC2.webp', 'GLGC3.webp', 'GLGC4.webp'],
       icon: IconMicrophone,
       color: 'from-blue-500 to-purple-500'
     },
@@ -75,7 +75,7 @@ const GetInvolved = () => {
           <div className="absolute top-0 left-0 w-1/3 h-full">
             <div className="absolute inset-0 bg-black/40 mix-blend-overlay z-10"></div>
             <img 
-              src="/images/DStarsBG.jpg"
+              src="/images/DStarsBG.webp"
               alt="Dancing Stars Background"
               className="w-full h-full object-cover object-center scale-110"
             />
@@ -86,7 +86,7 @@ const GetInvolved = () => {
           <div className="absolute top-0 left-1/3 w-1/3 h-full">
             <div className="absolute inset-0 bg-black/40 mix-blend-overlay z-10"></div>
             <img 
-              src="/images/GLGCBG.JPG"
+              src="/images/GLGCBG.webp"
               alt="GLGC Background"
               className="w-full h-full object-cover object-center scale-110"
             />
@@ -152,8 +152,8 @@ const GetInvolved = () => {
                   
                   {/* Background Image */}
                   <img 
-                    src={`/images/${section.id === 'dancing-stars' ? 'DStarsBG.jpg' : 
-                          section.id === 'glgc' ? 'GLGCBG.JPG' : 
+                    src={`/images/${section.id === 'dancing-stars' ? 'DStarsBG.webp' : 
+                          section.id === 'glgc' ? 'GLGCBG.webp' : 
                           'FILMBG.webp'}`}
                     alt={section.title}
                     className="w-full h-full object-cover object-center transform scale-105"

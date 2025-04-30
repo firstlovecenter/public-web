@@ -43,7 +43,7 @@ const HealingJesus = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/images/souls.jpg"
+            src="/images/souls.webp"
             alt="Healing Jesus Campaign"
             className="w-full h-full object-cover object-center opacity-75"
           />

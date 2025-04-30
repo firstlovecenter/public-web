@@ -87,7 +87,7 @@ const About = () => {
               <div className="absolute -inset-1 bg-gradient-to-b from-white via-white to-white/50 opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 blur-sm"></div>
               <div className="relative w-40 h-48 overflow-hidden ring-2 ring-white rounded-xl">
                 <img
-                  src="/images/pastor.jpg"
+                  src="/images/pastor.webp"
                   alt="Joshua Dag Heward-Mills"
                   className="object-cover w-full h-full transform transition duration-500 group-hover:scale-105"
                 />

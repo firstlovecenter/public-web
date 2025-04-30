@@ -33,7 +33,7 @@ const Location = () => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-black/60 z-10"></div>
           <img 
-            src="/images/location.jpg" 
+            src="/images/location.webp" 
             alt="First Love Location" 
             className="absolute inset-0 w-full h-full object-cover object-center"
           />

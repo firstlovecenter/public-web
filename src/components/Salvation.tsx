@@ -29,7 +29,7 @@ const Salvation = () => {
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-black/60 z-10"></div>
           <img 
-            src="/images/Evangelism_In_Africa_Dag_Heward_Mills_Healing_Jesus_Campaign_Bangui_Central_Africa14.jpg" 
+            src="/images/Evangelism_In_Africa_Dag_Heward_Mills_Healing_Jesus_Campaign_Bangui_Central_Africa14.webp" 
             alt="Healing Evangelist" 
             className="absolute inset-0 w-full h-full object-cover object-center"
           />

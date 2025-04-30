@@ -34,7 +34,7 @@ const Founder = () => {
       <div className="absolute inset-0 md:hidden">
         <div className="absolute inset-0 -top-32 h-[calc(100%+8rem)]">
           <img
-            src="/images/dhm.png"
+            src="/images/dhm.webp"
             alt=""
             className="w-full h-full object-cover object-[center_30%] opacity-90"
           />
@@ -104,7 +104,7 @@ const Founder = () => {
               {/* Glow Effect */}
               <div className="absolute -inset-2 bg-gradient-to-tr from-white/10 via-white/5 to-transparent blur-2xl transition-opacity duration-500 group-hover:opacity-75"></div>
               <img
-                src="/images/dhm.png"
+                src="/images/dhm.webp"
                 alt="Bishop Dag Heward-Mills"
                 className="relative h-full w-full object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
               />

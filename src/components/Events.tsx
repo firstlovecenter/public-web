@@ -10,13 +10,13 @@ const Events = () => {
         {
           name: 'Holy Ghost Encounter Service',
           time: '8:30 AM',
-          image: '/images/events/HGE.png',
+          image: '/images/events/HGE.webp',
           description: 'Start your Sunday with a powerful encounter with the Holy Spirit'
         },
         {
           name: 'The First Love Experience Service',
           time: '12:00 PM',
-          image: '/images/events/Experience.png',
+          image: '/images/events/Experience.webp',
           description: 'Experience the presence of God'
         }
       ]
@@ -27,7 +27,7 @@ const Events = () => {
         {
           name: 'First Love Conversations',
           time: '7:00 PM',
-          image: '/images/events/Convo.png',
+          image: '/images/events/Convo.webp',
           description: 'Join us for enriching conversations'
         }
       ]
@@ -38,7 +38,7 @@ const Events = () => {
         {
           name: 'Flow Prayer',
           time: '4:00 AM',
-          image: '/images/events/prayer.png',
+          image: '/images/events/prayer.webp',
           description: 'Early morning prayer time with Bishop Dag Heward-Mills'
         }
       ]
@@ -49,7 +49,7 @@ const Events = () => {
         {
           name: 'Preventing the Dawn',
           time: '5:00 AM',
-          image: '/images/events/prevent.png',
+          image: '/images/events/prevent.webp',
           description: 'Rise before dawn in worship'
         }
       ]
@@ -60,7 +60,7 @@ const Events = () => {
         {
           name: 'Feed the FLOC',
           time: '7:00 PM',
-          image: '/images/events/flock.png',
+          image: '/images/events/flock.webp',
           description: 'Nourishing the flock with the Word'
         }
       ]
@@ -71,7 +71,7 @@ const Events = () => {
         {
           name: 'Flow Prayer',
           time: '4:00 AM',
-          image: '/images/events/prayer.png',
+          image: '/images/events/prayer.webp',
           description: 'Early morning prayer time with Bishop Dag Heward-Mills'
         }
       ]
@@ -102,7 +102,7 @@ const Events = () => {
       {/* Background Image */}
         <div className="absolute inset-0">
           <img 
-            src="/images/events-bg.jpg" 
+            src="/images/events-bg.webp" 
           alt="Events Background"
           className="w-full h-full object-cover object-center opacity-50"
         />

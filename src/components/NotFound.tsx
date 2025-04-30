@@ -8,7 +8,7 @@ const NotFound = () => {
       {/* Background Effects */}
       <div className="absolute inset-0">
         <img
-          src="/images/notfound-bg.jpg"
+          src="/images/notfound-bg.webp"
           alt="Not Found Background"
           className="w-full h-full object-cover object-center opacity-50"
         />
