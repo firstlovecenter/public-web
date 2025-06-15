@@ -37,6 +37,8 @@ const MainContent = () => {
   
   // Handle modal display
   useEffect(() => {
+    // Commented out to disable modal popup on page load
+    /*
     // Only on homepage
     if (location.pathname === '/') {
       const hasShownModal = sessionStorage.getItem('hasShownModal');
@@ -52,6 +54,7 @@ const MainContent = () => {
         localStorage.setItem('lastReload', currentTime.toString());
       }
     }
+    */
   }, [location.pathname]); 
   
   const handleCloseModal = () => {
