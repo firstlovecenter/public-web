@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+
 import About from './components/About';
 import Founder from './components/Founder';
 import FirstLoveChannel from './components/FirstLoveChannel';
@@ -14,6 +14,7 @@ import Global from './components/Global';
 import Salvation from './components/Salvation';
 import GetInvolved from './components/GetInvolved';
 import Events from './components/Events.tsx';
+import FirstLoveConference from './components/FirstLoveConference';
 import Connect from './components/Connect.tsx';
 import Location from './components/Location';
 import RedirectToGive from './components/RedirectToGive';
@@ -65,7 +66,7 @@ const MainContent = () => {
   if (location.pathname === '/') {
     return (
       <>
-        <Hero />
+        <FirstLoveConference />
         <About />
         <Founder />
         <FirstLoveChannel />

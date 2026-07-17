@@ -29,6 +29,7 @@ export default {
         'gradient-x': 'gradient-x 15s ease infinite',
         'orbit': 'orbit 20s linear infinite',
         'spin-slow': 'spin 20s linear infinite',
+        'nudge': 'nudge 2s ease-in-out infinite',
       },
       keyframes: {
         drift: {
@@ -76,6 +77,10 @@ export default {
         'orbit': {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
+        },
+        'nudge': {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '50%': { transform: 'translateX(4px)' },
         },
       },
     },

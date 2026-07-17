@@ -1,8 +1,10 @@
 import { useRef, useEffect, useState } from 'react';
 
+const HEALING_JESUS_VIDEO_ID = 'rWDeiQU2AzQ';
+
 const HealingJesus = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,16 +27,6 @@ const HealingJesus = () => {
 
   const handleChannelClick = () => {
     window.open('https://www.youtube.com/@healingjesuscampaign', '_blank', 'noopener,noreferrer');
-  };
-
-  const handleVideoClick = () => {
-    setIsVideoModalOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeVideoModal = () => {
-    setIsVideoModalOpen(false);
-    document.body.style.overflow = 'unset';
   };
 
   return (
@@ -90,30 +82,43 @@ const HealingJesus = () => {
             <div className="relative animate-on-scroll opacity-0 translate-y-10 transition-all duration-1000 delay-300">
               <div className="relative w-full max-w-[600px] lg:max-w-[700px] xl:max-w-[800px] mx-auto">
                 {/* Video Container */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl transform transition-all duration-1000">
-                  <button
-                    onClick={handleVideoClick}
-                    className="block relative group w-full"
-                  >
-                    <img
-                      src="https://img.youtube.com/vi/ScEaZ7edDkc/maxresdefault.jpg"
-                      alt="Healing Jesus Campaign Video"
-                      className="w-full rounded-3xl transform group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0"></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg className="w-10 h-10 text-white fill-current" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  {isVideoPlaying ? (
+                    <div className="relative" style={{ paddingTop: '56.25%' }}>
+                      <iframe
+                        className="absolute inset-0 w-full h-full rounded-3xl"
+                        src={`https://www.youtube.com/embed/${HEALING_JESUS_VIDEO_ID}?autoplay=1&rel=0`}
+                        title="Healing Jesus Campaign"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
                     </div>
-                  </button>
+                  ) : (
+                    <button
+                      onClick={() => setIsVideoPlaying(true)}
+                      className="block relative group w-full"
+                      aria-label="Play Healing Jesus Campaign video"
+                    >
+                      <img
+                        src={`https://img.youtube.com/vi/${HEALING_JESUS_VIDEO_ID}/maxresdefault.jpg`}
+                        alt="Healing Jesus Campaign Video"
+                        className="w-full rounded-3xl transform group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 rounded-3xl" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-red-600/40">
+                          <svg className="w-10 h-10 text-white fill-current" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </button>
+                  )}
                 </div>
 
                 {/* Glow Effects */}
-                <div className="absolute -inset-4 bg-orange-600/20 blur-2xl rounded-full -z-10 animate-pulse"></div>
-                <div className="absolute -inset-8 bg-yellow-600/20 blur-3xl rounded-full -z-10"></div>
+                <div className="absolute -inset-4 bg-orange-600/20 blur-2xl rounded-full -z-10 animate-pulse" />
+                <div className="absolute -inset-8 bg-yellow-600/20 blur-3xl rounded-full -z-10" />
               </div>
             </div>
           </div>
@@ -124,33 +129,6 @@ const HealingJesus = () => {
         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
       </section>
 
-      {/* Video Modal */}
-      {isVideoModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 animate-fade-in" onClick={closeVideoModal}>
-          <div className="relative w-full max-w-6xl mx-auto transform transition-all duration-300 scale-95 animate-scale-up" onClick={e => e.stopPropagation()}>
-            {/* Close Button */}
-            <button
-              onClick={closeVideoModal}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
-            >
-              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            {/* Video Container with 16:9 Aspect Ratio */}
-            <div className="relative pb-[56.25%] h-0 bg-black rounded-xl overflow-hidden shadow-2xl">
-              <iframe
-                src="https://www.youtube.com/embed/ScEaZ7edDkc?autoplay=1"
-                title="Healing Jesus Campaign"
-                className="absolute top-0 left-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };
