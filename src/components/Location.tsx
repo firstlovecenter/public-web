@@ -35,6 +35,9 @@ const Location = () => {
           <img 
             src="/images/location.webp" 
             alt="First Love Location" 
+            width="1920"
+            height="1080"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black z-10"></div>
@@ -135,4 +138,4 @@ const Location = () => {
   );
 };
 
-export default Location; 
+export default Location;

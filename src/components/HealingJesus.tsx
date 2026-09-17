@@ -37,6 +37,10 @@ const HealingJesus = () => {
           <img
             src="/images/souls.webp"
             alt="Healing Jesus Campaign"
+            width="1920"
+            height="1080"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-center opacity-75"
           />
           {/* Background Effects */}
@@ -89,6 +93,7 @@ const HealingJesus = () => {
                         className="absolute inset-0 w-full h-full rounded-3xl"
                         src={`https://www.youtube.com/embed/${HEALING_JESUS_VIDEO_ID}?autoplay=1&rel=0`}
                         title="Healing Jesus Campaign"
+                        loading="lazy"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                       />
@@ -102,6 +107,10 @@ const HealingJesus = () => {
                       <img
                         src={`https://img.youtube.com/vi/${HEALING_JESUS_VIDEO_ID}/maxresdefault.jpg`}
                         alt="Healing Jesus Campaign Video"
+                        width="1280"
+                        height="720"
+                        loading="lazy"
+                        decoding="async"
                         className="w-full rounded-3xl transform group-hover:scale-105 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 rounded-3xl" />
@@ -133,4 +142,4 @@ const HealingJesus = () => {
   );
 };
 
-export default HealingJesus; 
+export default HealingJesus;

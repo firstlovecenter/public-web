@@ -89,6 +89,10 @@ const About = () => {
                 <img
                   src="/images/pastor.webp"
                   alt="Joshua Dag Heward-Mills"
+                  width="160"
+                  height="192"
+                  loading="lazy"
+                  decoding="async"
                   className="object-cover w-full h-full transform transition duration-500 group-hover:scale-105"
                 />
               </div>
@@ -111,4 +115,4 @@ const About = () => {
   );
 };
 
-export default About; 
+export default About;

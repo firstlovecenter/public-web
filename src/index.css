@@ -17,6 +17,10 @@
   body {
     @apply antialiased bg-black m-0;
   }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-purple-300 ring-offset-2 ring-offset-black;
+  }
 }
 
 @layer components {
@@ -62,4 +66,13 @@
 
 .animate-album-appear {
   animation: album-appear 1s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

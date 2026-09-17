@@ -1,11 +1,10 @@
 import { Facebook, Instagram, Youtube, Twitter, ArrowUpRight } from 'lucide-react';
 import { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import flLogo from '../assets/images/FL_Logo.webp';
 
 const Footer = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -66,6 +65,10 @@ const Footer = () => {
               <img 
                 src={flLogo} 
                 alt="First Love Church Logo" 
+                width="80"
+                height="80"
+                loading="lazy"
+                decoding="async"
                 className="relative w-full h-full object-contain filter brightness-0 invert transform group-hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -110,8 +113,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <button
-                    onClick={() => navigate(link.path)}
+                  <Link
+                    to={link.path}
                     className="group flex items-center text-gray-400 hover:text-white transition-colors duration-300 text-sm"
                   >
                     <span className="relative">
@@ -119,7 +122,7 @@ const Footer = () => {
                       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 group-hover:w-full transition-all duration-300"></span>
                     </span>
                     <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -22,10 +22,6 @@ const DagSermons = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleStoreClick = (url: string) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <section ref={sectionRef} className="relative min-h-screen bg-black py-20">
       {/* Background Image */}
@@ -33,6 +29,10 @@ const DagSermons = () => {
         <img
           src="/images/dhm2.webp"
           alt=""
+          width="1920"
+          height="1080"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-center opacity-75"
         />
         {/* Background Effects */}
@@ -66,6 +66,10 @@ const DagSermons = () => {
                 <img
                   src="/images/dag_sermons_mockup.webp"
                   alt="Dag Sermons App Preview"
+                  width="800"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto drop-shadow-2xl"
                 />
                 {/* Glow Effects */}
@@ -77,8 +81,10 @@ const DagSermons = () => {
             {/* Store Buttons */}
             <div className="flex flex-col items-center md:items-start gap-4 pt-8">
               {/* App Store Button */}
-              <button 
-                onClick={() => handleStoreClick('https://apps.apple.com/us/app/dag-sermons/id6502289149')}
+              <a
+                href="https://apps.apple.com/us/app/dag-sermons/id6502289149"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full max-w-sm transition-all duration-300 ease-out transform hover:scale-105"
               >
                 <div className="flex items-center justify-center md:justify-start px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 transition-colors duration-300 hover:bg-white/20 hover:border-white/20">
@@ -90,11 +96,13 @@ const DagSermons = () => {
                     <div className="text-lg text-white font-semibold -mt-1">App Store</div>
                   </div>
                 </div>
-              </button>
+              </a>
 
               {/* Google Play Button */}
-              <button 
-                onClick={() => handleStoreClick('https://play.google.com/store/apps/details?id=io.bemasolution.dagsermons')}
+              <a
+                href="https://play.google.com/store/apps/details?id=io.bemasolution.dagsermons"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full max-w-sm transition-all duration-300 ease-out transform hover:scale-105"
               >
                 <div className="flex items-center justify-center md:justify-start px-8 py-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 transition-colors duration-300 hover:bg-white/20 hover:border-white/20">
@@ -106,7 +114,7 @@ const DagSermons = () => {
                     <div className="text-lg text-white font-semibold -mt-1">Google Play</div>
                   </div>
                 </div>
-              </button>
+              </a>
             </div>
           </div>
 
@@ -116,6 +124,10 @@ const DagSermons = () => {
               <img
                 src="/images/dag_sermons_mockup.webp"
                 alt="Dag Sermons App Preview"
+                width="800"
+                height="800"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto transform hover:scale-105 transition-transform duration-700 drop-shadow-2xl"
               />
               {/* Glow Effects */}
@@ -133,4 +145,4 @@ const DagSermons = () => {
   );
 };
 
-export default DagSermons; 
+export default DagSermons;

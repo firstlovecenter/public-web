@@ -36,6 +36,10 @@ const Founder = () => {
           <img
             src="/images/dhm.webp"
             alt=""
+            width="1920"
+            height="1080"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-[center_30%] opacity-90"
           />
         </div>
@@ -106,6 +110,10 @@ const Founder = () => {
               <img
                 src="/images/dhm.webp"
                 alt="Bishop Dag Heward-Mills"
+                width="1920"
+                height="1080"
+                loading="lazy"
+                decoding="async"
                 className="relative h-full w-full object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
               />
             </div>
@@ -116,4 +124,4 @@ const Founder = () => {
   );
 };
 
-export default Founder; 
+export default Founder;

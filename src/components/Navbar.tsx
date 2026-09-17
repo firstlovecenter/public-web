@@ -1,219 +1,39 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { IconBrandFacebook, IconBrandInstagram, IconBrandX, IconBrandYoutube, IconBrandTiktok } from '@tabler/icons-react';
+import { IconBrandFacebook, IconBrandInstagram, IconBrandTiktok, IconBrandX, IconBrandYoutube } from '@tabler/icons-react';
 import logo from '../assets/images/FL_Logo.webp';
+
+const menuItems = [
+  { name: 'JESUS', href: '/salvation' }, { name: 'WHO WE ARE', href: '/#who-we-are' }, { name: 'EVENTS', href: '/events' },
+  { name: 'BOOKS', href: 'https://dagbooks.org/', external: true }, { name: 'GLOBAL', href: '/global' }, { name: 'OUR STORIES', href: '/#founder' },
+  { name: 'GET INVOLVED', href: '/get-involved' }, { name: 'CONNECT', href: '/connect' }, { name: 'LOCATION', href: '/location' },
+];
+const socialLinks = [
+  { icon: IconBrandFacebook, label: 'Facebook', href: 'https://www.facebook.com/firstlovecenter/', color: 'hover:text-[#1877F2]' },
+  { icon: IconBrandInstagram, label: 'Instagram', href: 'https://www.instagram.com/firstlovecenter', color: 'hover:text-[#E4405F]' },
+  { icon: IconBrandX, label: 'X', href: 'https://x.com/FirstLoveCenter', color: 'hover:text-white' },
+  { icon: IconBrandYoutube, label: 'YouTube', href: 'https://www.youtube.com/channel/UCEBUZZ9Gyaek_l92J728Yuw', color: 'hover:text-[#FF0000]' },
+  { icon: IconBrandTiktok, label: 'TikTok', href: 'https://www.tiktok.com/@firstlovecenter', color: 'hover:text-white' },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-
-  const menuItems = [
-    { name: 'JESUS', href: '/salvation' },
-    { name: 'WHO WE ARE', href: '/#who-we-are' },
-    { name: 'EVENTS', href: '/events' },
-    { name: 'BOOKS', href: 'https://dagbooks.org/', external: true },
-    { name: 'GLOBAL', href: '/global' },
-    { name: 'OUR STORIES', href: '/#founder' },
-    { name: 'GET INVOLVED', href: '/get-involved' },
-    { name: 'CONNECT', href: '/connect' },
-    { name: 'LOCATION', href: '/location' },
-  ];
-
-  const socialLinks = [
-    { 
-      icon: IconBrandFacebook, 
-      href: 'https://www.facebook.com/firstlovecenter/',
-      color: 'hover:text-[#1877F2]' 
-    },
-    { 
-      icon: IconBrandInstagram, 
-      href: 'https://www.instagram.com/firstlovecenter',
-      color: 'hover:text-[#E4405F]'
-    },
-    { 
-      icon: IconBrandX, 
-      href: 'https://x.com/FirstLoveCenter',
-      color: 'hover:text-white'
-    },
-    { 
-      icon: IconBrandYoutube, 
-      href: 'https://www.youtube.com/channel/UCEBUZZ9Gyaek_l92J728Yuw',
-      color: 'hover:text-[#FF0000]'
-    },
-    { 
-      icon: IconBrandTiktok, 
-      href: 'https://www.tiktok.com/@firstlovecenter',
-      color: 'hover:text-white'
-    }
-  ];
-
-  const handleLogoClick = () => {
-    setIsOpen(false);
-    if (location.pathname !== '/') {
-      navigate('/');
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleClick = (href: string, external?: boolean) => {
-    if (external) {
-      window.open(href, '_blank', 'noopener,noreferrer');
-      return;
-    }
-
-    const isHashLink = href.startsWith('/#');
-    
-    if (isHashLink) {
-      const sectionId = href.replace('/#', '');
-      
-      if (location.pathname === '/') {
-        // Already on homepage, just scroll
-        const section = document.getElementById(sectionId);
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
-      } else {
-        // Navigate to homepage first, then scroll after a delay
-        navigate('/');
-        setTimeout(() => {
-          const section = document.getElementById(sectionId);
-          if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 100);
-      }
-    } else {
-      navigate(href);
-    }
-    setIsOpen(false);
-  };
-
-  // Add effect to handle initial scroll when navigating directly to a section
   useEffect(() => {
-    if (location.hash) {
-      // Wait for component mount
-      setTimeout(() => {
-        const element = document.querySelector(location.hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    }
+    if (!location.hash) return;
+    const timer = window.setTimeout(() => document.querySelector(location.hash)?.scrollIntoView({ behavior: 'smooth' }), 0);
+    return () => window.clearTimeout(timer);
   }, [location.hash]);
+  const closeMenu = () => setIsOpen(false);
+  const itemClass = 'group relative whitespace-nowrap text-sm font-medium text-white transition-colors hover:text-purple-400 focus-visible:text-purple-300';
 
-  return (
-    <nav className="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex items-center flex-shrink-0">
-            <button onClick={handleLogoClick} className="flex-shrink-0 flex items-center group">
-              <div className="relative w-12 h-12">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-purple-500/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <img src={logo} alt="First Love Church Logo" className="relative w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500" />
-              </div>
-            </button>
-          </div>
-          
-          {/* Desktop Navigation - Centered */}
-          <div className="hidden lg:flex items-center justify-center flex-1 mx-4 space-x-6 xl:space-x-8">
-            <div className="flex items-center space-x-4 xl:space-x-6">
-              {menuItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleClick(item.href, item.external)}
-                  className={`relative text-sm font-medium text-white hover:text-purple-400 transition-colors duration-300 group whitespace-nowrap ${
-                    (item.href === '/global' && location.pathname === '/global') ? 'text-purple-400' : ''
-                  }`}
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 group-hover:w-full transition-all duration-300"></span>
-                </button>
-              ))}
-            </div>
+  const renderMenuItem = (item: typeof menuItems[number], mobile = false) => {
+    const className = mobile ? 'block w-full rounded-lg px-4 py-3 text-left text-sm font-medium text-white transition-colors hover:bg-white/5 hover:text-purple-400' : itemClass;
+    return item.external ? <a key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className={className} onClick={closeMenu}>{item.name}</a> : <Link key={item.name} to={item.href} className={className} onClick={closeMenu}>{item.name}{!mobile && <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-purple-500 to-blue-500 transition-all group-hover:w-full" />}</Link>;
+  };
 
-            <div className="h-6 w-px bg-white/10 flex-shrink-0"></div>
-
-            {/* Social Media Icons */}
-            <div className="flex items-center space-x-3 xl:space-x-4 flex-shrink-0">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`text-gray-400 ${social.color} transition-colors duration-300`}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Spacer to balance logo and achieve true horizontal centering */}
-          <div className="hidden lg:block w-12 flex-shrink-0 pointer-events-none" aria-hidden="true" />
-
-          {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-purple-400 focus:outline-none transition-colors duration-300"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile menu */}
-      <div 
-        className={`lg:hidden fixed inset-x-0 top-20 transform ${
-          isOpen 
-            ? 'translate-y-0 opacity-100 pointer-events-auto' 
-            : '-translate-y-4 opacity-0 pointer-events-none'
-        } transition-all duration-300 ease-in-out`}
-      >
-        <div className="bg-black/95 backdrop-blur-lg border-t border-white/5 shadow-xl">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
-            <div className="space-y-2">
-              {menuItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleClick(item.href, item.external)}
-                  className={`block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-white/5 hover:text-purple-400 text-sm font-medium transition-all duration-300 ${
-                    (item.href === '/global' && location.pathname === '/global') ? 'text-purple-400 bg-white/5' : ''
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-            
-            <div className="border-t border-white/5 pt-4">
-              <div className="flex items-center justify-center space-x-6">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-2 rounded-full hover:bg-white/5 text-gray-400 ${social.color} transition-all duration-300`}
-                  >
-                    <social.icon className="w-5 h-5" />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div 
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm -z-10"
-          onClick={() => setIsOpen(false)}
-        ></div>
-      </div>
-    </nav>
-  );
+  return <nav className="fixed z-50 w-full border-b border-white/5 bg-black/80 backdrop-blur-md" aria-label="Primary navigation"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="flex h-20 items-center justify-between"><Link to="/" onClick={closeMenu} className="group flex flex-shrink-0 items-center" aria-label="First Love Church home"><div className="relative h-12 w-12"><div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-purple-500/20 blur-xl" /><img src={logo} alt="" width="48" height="48" className="relative h-full w-full object-contain" /></div></Link><div className="mx-4 hidden flex-1 items-center justify-center space-x-6 lg:flex xl:space-x-8"><div className="flex items-center space-x-4 xl:space-x-6">{menuItems.map((item) => renderMenuItem(item))}</div><div className="h-6 w-px bg-white/10" aria-hidden="true" /><div className="flex items-center space-x-3 xl:space-x-4">{socialLinks.map((social) => <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className={`text-gray-300 transition-colors ${social.color}`}><social.icon className="h-5 w-5" aria-hidden="true" /></a>)}</div></div><div className="lg:hidden"><button type="button" onClick={() => setIsOpen((open) => !open)} aria-expanded={isOpen} aria-controls="mobile-navigation" className="inline-flex items-center justify-center rounded-md p-2 text-white transition-colors hover:text-purple-400" aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}>{isOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}</button></div></div></div><div id="mobile-navigation" hidden={!isOpen} className="fixed inset-x-0 top-20 transition-all duration-300 lg:hidden"><div className="border-t border-white/5 bg-black/95 p-4 shadow-xl"><div className="space-y-2">{menuItems.map((item) => renderMenuItem(item, true))}</div><div className="mt-4 flex justify-center space-x-6 border-t border-white/5 pt-4">{socialLinks.map((social) => <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className={`rounded-full p-2 text-gray-300 ${social.color}`}><social.icon className="h-5 w-5" aria-hidden="true" /></a>)}</div></div><button type="button" onClick={closeMenu} className="fixed inset-0 -z-10 h-screen w-full cursor-default bg-black/20" aria-label="Close navigation menu" /></div></nav>;
 };
 
 export default Navbar;

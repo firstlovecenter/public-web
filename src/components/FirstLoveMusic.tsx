@@ -24,10 +24,6 @@ const FirstLoveMusic = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleStreamingClick = (url: string) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <section id="firstlovemusic" ref={sectionRef} className="relative min-h-screen bg-black py-20 overflow-hidden">
       {/* Background Image */}
@@ -35,6 +31,8 @@ const FirstLoveMusic = () => {
         <img
           src={flmBg}
           alt=""
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-center opacity-75"
         />
         {/* Background Effects */}
@@ -55,6 +53,8 @@ const FirstLoveMusic = () => {
               <img 
                 src={flmLogo} 
                 alt="First Love Music"
+                loading="lazy"
+                decoding="async"
                 className="h-24 md:h-32 lg:h-40 w-auto mb-8 mx-auto md:mx-0 filter drop-shadow-2xl"
               />
               <div className="h-1.5 w-32 bg-gradient-to-r from-blue-500 via-blue-400 to-purple-500 rounded-full md:mx-0 mx-auto"></div>
@@ -67,8 +67,10 @@ const FirstLoveMusic = () => {
             {/* Streaming Platform Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6 pt-8">
               {/* Apple Music */}
-              <div 
-                onClick={() => handleStreamingClick('https://music.apple.com/bw/artist/first-love-music/1541756750')}
+              <a
+                href="https://music.apple.com/bw/artist/first-love-music/1541756750"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group cursor-pointer"
               >
                 <div className="flex items-center px-8 py-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 transition-all duration-300 hover:bg-white/20 hover:border-white/20 hover:scale-105 transform hover:shadow-xl hover:shadow-blue-500/20">
@@ -77,11 +79,13 @@ const FirstLoveMusic = () => {
                   </svg>
                   <span className="text-lg text-white font-semibold tracking-wide">Apple Music</span>
                 </div>
-              </div>
+              </a>
 
               {/* Spotify */}
-              <div 
-                onClick={() => handleStreamingClick('https://open.spotify.com/artist/2416FtiudAa79lko2LIVii')}
+              <a
+                href="https://open.spotify.com/artist/2416FtiudAa79lko2LIVii"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group cursor-pointer"
               >
                 <div className="flex items-center px-8 py-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 transition-all duration-300 hover:bg-white/20 hover:border-white/20 hover:scale-105 transform hover:shadow-xl hover:shadow-green-500/20">
@@ -90,11 +94,13 @@ const FirstLoveMusic = () => {
                   </svg>
                   <span className="text-lg text-white font-semibold tracking-wide">Spotify</span>
                 </div>
-              </div>
+              </a>
 
               {/* Deezer */}
-              <div 
-                onClick={() => handleStreamingClick('https://www.deezer.com/en/artist/93221382')}
+              <a
+                href="https://www.deezer.com/en/artist/93221382"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group cursor-pointer"
               >
                 <div className="flex items-center px-8 py-5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 transition-all duration-300 hover:bg-white/20 hover:border-white/20 hover:scale-105 transform hover:shadow-xl hover:shadow-purple-500/20">
@@ -103,7 +109,7 @@ const FirstLoveMusic = () => {
                   </svg>
                   <span className="text-lg text-white font-semibold tracking-wide">Deezer</span>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
@@ -114,6 +120,8 @@ const FirstLoveMusic = () => {
                 <img
                   src={flmBg}
                   alt="First Love Music"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto rounded-3xl transform group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl"
                 />
                 
@@ -136,4 +144,4 @@ const FirstLoveMusic = () => {
   );
 };
 
-export default FirstLoveMusic; 
+export default FirstLoveMusic;

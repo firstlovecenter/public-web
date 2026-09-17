@@ -30,6 +30,10 @@ const FirstLoveChannel = () => {
         <img
           src="/images/firstLove.webp"
           alt=""
+          width="1920"
+          height="1080"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover opacity-75"
         />
         {/* Background Effects */}
@@ -81,6 +85,7 @@ const FirstLoveChannel = () => {
                     className="absolute inset-0 w-full h-full rounded-3xl"
                     src="https://www.youtube.com/embed/GSECrQ7vKo8?autoplay=1&rel=0"
                     title="First Love Channel Video"
+                    loading="lazy"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
@@ -123,4 +128,4 @@ const FirstLoveChannel = () => {
   );
 };
 
-export default FirstLoveChannel; 
+export default FirstLoveChannel;
