@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 
-const HEALING_JESUS_VIDEO_ID = 'rWDeiQU2AzQ';
+const HEALING_JESUS_VIDEO_ID = '4RL5-9u_mtU';
 
 const HealingJesus = () => {
   const sectionRef = useRef<HTMLElement>(null);

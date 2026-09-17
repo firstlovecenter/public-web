@@ -13,13 +13,12 @@ const Navbar = () => {
     { name: 'JESUS', href: '/salvation' },
     { name: 'WHO WE ARE', href: '/#who-we-are' },
     { name: 'EVENTS', href: '/events' },
-    { name: 'BOOKS', href: 'https://daghewardmillsbooks.org/new/', external: true },
+    { name: 'BOOKS', href: 'https://dagbooks.org/', external: true },
     { name: 'GLOBAL', href: '/global' },
     { name: 'OUR STORIES', href: '/#founder' },
     { name: 'GET INVOLVED', href: '/get-involved' },
     { name: 'CONNECT', href: '/connect' },
     { name: 'LOCATION', href: '/location' },
-    { name: 'GIVING', href: '/#giving' },
   ];
 
   const socialLinks = [
@@ -49,13 +48,6 @@ const Navbar = () => {
       color: 'hover:text-white'
     }
   ];
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   const handleLogoClick = () => {
     setIsOpen(false);
@@ -114,8 +106,8 @@ const Navbar = () => {
   return (
     <nav className="bg-black/80 backdrop-blur-md fixed w-full z-50 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
-          <div className="flex items-center">
+        <div className="flex items-center justify-between h-20">
+          <div className="flex items-center flex-shrink-0">
             <button onClick={handleLogoClick} className="flex-shrink-0 flex items-center group">
               <div className="relative w-12 h-12">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-purple-500/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
@@ -124,14 +116,14 @@ const Navbar = () => {
             </button>
           </div>
           
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <div className="flex items-center space-x-6">
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden lg:flex items-center justify-center flex-1 mx-4 space-x-6 xl:space-x-8">
+            <div className="flex items-center space-x-4 xl:space-x-6">
               {menuItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => handleClick(item.href, item.external)}
-                  className={`relative text-sm font-medium text-white hover:text-purple-400 transition-colors duration-300 group ${
+                  className={`relative text-sm font-medium text-white hover:text-purple-400 transition-colors duration-300 group whitespace-nowrap ${
                     (item.href === '/global' && location.pathname === '/global') ? 'text-purple-400' : ''
                   }`}
                 >
@@ -141,10 +133,10 @@ const Navbar = () => {
               ))}
             </div>
 
-            <div className="h-6 w-px bg-white/10"></div>
+            <div className="h-6 w-px bg-white/10 flex-shrink-0"></div>
 
             {/* Social Media Icons */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3 xl:space-x-4 flex-shrink-0">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -158,6 +150,9 @@ const Navbar = () => {
               ))}
             </div>
           </div>
+
+          {/* Spacer to balance logo and achieve true horizontal centering */}
+          <div className="hidden lg:block w-12 flex-shrink-0 pointer-events-none" aria-hidden="true" />
 
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center">

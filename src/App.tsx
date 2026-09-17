@@ -8,13 +8,13 @@ import FirstLoveChannel from './components/FirstLoveChannel';
 import DagSermons from './components/DagSermons';
 import FirstLoveMusic from './components/FirstLoveMusic';
 import HealingJesus from './components/HealingJesus';
-import Giving from './components/Giving';
+// import Giving from './components/Giving';
 import Footer from './components/Footer';
 import Global from './components/Global';
 import Salvation from './components/Salvation';
 import GetInvolved from './components/GetInvolved';
 import Events from './components/Events.tsx';
-import FirstLoveConference from './components/FirstLoveConference';
+import Hero from './components/Hero';
 import Connect from './components/Connect.tsx';
 import Location from './components/Location';
 import RedirectToGive from './components/RedirectToGive';
@@ -66,14 +66,14 @@ const MainContent = () => {
   if (location.pathname === '/') {
     return (
       <>
-        <FirstLoveConference />
+        <Hero />
         <About />
         <Founder />
         <FirstLoveChannel />
         <DagSermons />
         <FirstLoveMusic />
         <HealingJesus />
-        <Giving />
+        {/* <Giving /> */}
         <AlbumModal isOpen={showAlbumModal} onClose={handleCloseModal} />
       </>
     );

@@ -38,7 +38,6 @@ const Footer = () => {
     { name: 'Our Founder', path: '/#founder' },
     { name: 'First Love Channel', path: '/#firstlovechannel' },
     { name: 'First Love Music', path: '/#firstlovemusic' },
-    { name: 'Give', path: '/#giving' },
   ];
 
   const scrollToTop = () => {
