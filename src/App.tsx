@@ -17,6 +17,8 @@ const Events = lazy(() => import('./components/Events'));
 const Connect = lazy(() => import('./components/Connect'));
 const Location = lazy(() => import('./components/Location'));
 const RedirectToGive = lazy(() => import('./components/RedirectToGive'));
+const TermsOfUse = lazy(() => import('./components/TermsOfUse'));
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
 const NotFound = lazy(() => import('./components/NotFound'));
 
 const PageLoader = () => <div className="min-h-screen bg-black" aria-label="Loading page" role="status" />;
@@ -32,7 +34,7 @@ const MainContent = () => {
 };
 
 function App() {
-  return <Router><ScrollToTop /><div className="min-h-screen overflow-hidden bg-black"><Navbar /><Suspense fallback={<PageLoader />}><Routes><Route path="/" element={<MainContent />} /><Route path="/global" element={<Global />} /><Route path="/salvation" element={<Salvation />} /><Route path="/get-involved" element={<GetInvolved />} /><Route path="/events" element={<Events />} /><Route path="/connect" element={<Connect />} /><Route path="/location" element={<Location />} /><Route path="/give" element={<RedirectToGive />} /><Route path="*" element={<NotFound />} /></Routes></Suspense><Footer /></div></Router>;
+  return <Router><ScrollToTop /><div className="min-h-screen overflow-hidden bg-black"><Navbar /><Suspense fallback={<PageLoader />}><Routes><Route path="/" element={<MainContent />} /><Route path="/global" element={<Global />} /><Route path="/salvation" element={<Salvation />} /><Route path="/get-involved" element={<GetInvolved />} /><Route path="/events" element={<Events />} /><Route path="/connect" element={<Connect />} /><Route path="/location" element={<Location />} /><Route path="/give" element={<RedirectToGive />} /><Route path="/terms" element={<TermsOfUse />} /><Route path="/privacy" element={<PrivacyPolicy />} /><Route path="*" element={<NotFound />} /></Routes></Suspense><Footer /></div></Router>;
 }
 
 export default App;

@@ -189,9 +189,11 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-6 border-t border-gray-800/50">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} First Love Center. All rights reserved.
-            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-gray-400 text-sm">
+              <p>&copy; {new Date().getFullYear()} First Love Center. All rights reserved.</p>
+              <Link to="/terms" className="hover:text-white transition-colors duration-300">Terms of Use</Link>
+              <Link to="/privacy" className="hover:text-white transition-colors duration-300">Privacy Policy</Link>
+            </div>
             <button 
               onClick={scrollToTop}
               className="group flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300 text-sm"
