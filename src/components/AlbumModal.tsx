@@ -1,3 +1,4 @@
+import YouTubeBrand from './YouTubeBrand';
 import { useState, useEffect } from 'react';
 import { X, Download, Play } from 'lucide-react';
 
@@ -13,7 +14,6 @@ interface MusicLink {
 }
 
 const AlbumModal = ({ isOpen, onClose }: AlbumModalProps) => {
-  const [isVisible, setIsVisible] = useState(false);
   const [animateCover, setAnimateCover] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   
@@ -29,18 +29,12 @@ const AlbumModal = ({ isOpen, onClose }: AlbumModalProps) => {
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      setIsVisible(true);
-      // Add a slight delay before starting the cover animation
-      setTimeout(() => {
-        setAnimateCover(true);
-      }, 300);
-    } else {
+    if (!isOpen) {
       setAnimateCover(false);
-      setTimeout(() => {
-        setIsVisible(false);
-      }, 300);
+      return;
     }
+    const timer = window.setTimeout(() => setAnimateCover(true), 300);
+    return () => window.clearTimeout(timer);
   }, [isOpen]);
 
   const handleClose = (e: React.MouseEvent) => {
@@ -48,7 +42,7 @@ const AlbumModal = ({ isOpen, onClose }: AlbumModalProps) => {
     onClose();
   };
 
-  if (!isOpen && !isVisible) return null;
+  if (!isOpen) return null;
 
   const musicLinks: MusicLink[] = [
     { 
@@ -69,7 +63,7 @@ const AlbumModal = ({ isOpen, onClose }: AlbumModalProps) => {
     { 
       name: "YouTube Music", 
       url: "https://music.youtube.com/playlist?list=OLAK5uy_mbS98EqIaGkwNXZnxGpNDZ-2nrATL-I5Y",
-      icon: "/images/youtube-music.webp"
+      icon: "/images/brands/youtube-music.png"
     },
     { 
       name: "Tidal", 
@@ -90,9 +84,7 @@ const AlbumModal = ({ isOpen, onClose }: AlbumModalProps) => {
 
   return (
     <div 
-      className={`fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 transition-opacity duration-300 ${
-        isOpen ? 'opacity-100' : 'opacity-0'
-      }`}
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
     >
       <div 
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
@@ -100,9 +92,7 @@ const AlbumModal = ({ isOpen, onClose }: AlbumModalProps) => {
       ></div>
       
       <div 
-        className={`relative bg-gradient-to-br from-gray-900/90 to-black/95 rounded-xl sm:rounded-2xl w-full max-w-[95%] sm:max-w-5xl max-h-[85vh] sm:max-h-[90vh] overflow-y-auto overflow-x-hidden shadow-2xl transition-all duration-500 ${
-          isOpen ? 'scale-100 translate-y-0' : 'scale-95 translate-y-10'
-        }`}
+        className="relative bg-gradient-to-br from-gray-900/90 to-black/95 rounded-xl sm:rounded-2xl w-full max-w-[95%] sm:max-w-5xl max-h-[85vh] sm:max-h-[90vh] overflow-y-auto overflow-x-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()} // Prevent clicks on modal from closing it
       >
         {/* Background image with parallax effect */}
@@ -198,7 +188,7 @@ const AlbumModal = ({ isOpen, onClose }: AlbumModalProps) => {
               <h3 className="text-white/70 text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-4 font-medium">Listen On</h3>
               
               {/* Streaming icons in a better grid layout */}
-              <div className="grid grid-cols-4 md:grid-cols-5 gap-1.5 sm:gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-4">
                 {displayedLinks.map((link, index) => (
                   <a 
                     key={index}
@@ -208,14 +198,12 @@ const AlbumModal = ({ isOpen, onClose }: AlbumModalProps) => {
                     className="flex flex-col items-center text-center group"
                     aria-label={`Listen on ${link.name}`}
                   >
-                    <div className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-1 sm:mb-2 transition-all duration-300 hover:scale-110 hover:shadow-lg group-hover:shadow-purple-500/20">
-                      <img 
-                        src={link.icon} 
-                        alt={`${link.name} icon`}
-                        className="h-5 w-5 sm:h-7 sm:w-7 md:h-8 md:w-8 object-contain p-1"
-                      />
+                    <div className={`mb-2 flex h-[60px] w-16 items-center justify-center rounded ${(link.name === 'Tidal' || link.name === 'First Love Music Website') ? 'bg-white' : 'bg-[#181818]'}`}>
+                      {link.name === 'YouTube Music' ? <YouTubeBrand music /> : (
+                        <img src={link.icon} alt="" className="h-7 w-7 object-contain" />
+                      )}
                     </div>
-                    <span className="text-white/80 text-[8px] sm:text-xs group-hover:text-purple-300 transition-colors duration-300">
+                    <span className="text-white/80 text-xs group-hover:text-white">
                       {link.name}
                     </span>
                   </a>

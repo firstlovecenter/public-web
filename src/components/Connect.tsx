@@ -1,3 +1,4 @@
+import SocialLinks from './SocialLinks';
 import { useEffect } from 'react';
 import flLogo from '../assets/images/FL_Logo.webp';
 
@@ -90,64 +91,7 @@ const Connect = () => {
             </div>
 
             {/* Social Media Links */}
-            <div className="flex justify-center items-center gap-8">
-              <a
-                href="https://www.facebook.com/firstlovecenter/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <div className="w-16 h-16 bg-[#1877F2] rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110">
-                  <img 
-                    src="/images/social/facebook.webp" 
-                    alt="Facebook" 
-                    className="w-8 h-8"
-                  />
-                </div>
-              </a>
-              <a
-                href="https://www.youtube.com/channel/UCEBUZZ9Gyaek_l92J728Yuw"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <div className="w-16 h-16 bg-[#FF0000] rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110">
-                  <img 
-                    src="/images/social/youtube.webp" 
-                    alt="YouTube" 
-                    className="w-8 h-8"
-                  />
-                </div>
-              </a>
-              <a
-                href="https://www.instagram.com/firstlovecenter"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <div className="w-16 h-16 bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110">
-                  <img 
-                    src="/images/social/instagram.webp" 
-                    alt="Instagram" 
-                    className="w-8 h-8"
-                  />
-                </div>
-              </a>
-              <a
-                href="https://x.com/FirstLoveCenter"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group"
-              >
-                <div className="w-16 h-16 bg-[#1DA1F2] rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110">
-                  <img 
-                    src="/images/social/twitter.webp" 
-                    alt="Twitter" 
-                    className="w-8 h-8"
-                  />
-                </div>
-              </a>
-            </div>
+            <SocialLinks />
           </div>
         </div>
       </div>

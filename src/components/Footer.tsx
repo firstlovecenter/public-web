@@ -1,4 +1,5 @@
-import { Facebook, Instagram, Youtube, Twitter, ArrowUpRight } from 'lucide-react';
+import SocialLinks from './SocialLinks';
+import { ArrowUpRight } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import flLogo from '../assets/images/FL_Logo.webp';
@@ -24,13 +25,6 @@ const Footer = () => {
 
     return () => observer.disconnect();
   }, []);
-
-  const socialLinks = [
-    { icon: Facebook, href: 'https://www.facebook.com/firstlovecenter/', label: 'Facebook', bgColor: 'bg-[#1877F2]' },
-    { icon: Youtube, href: 'https://www.youtube.com/channel/UCEBUZZ9Gyaek_l92J728Yuw', label: 'YouTube', bgColor: 'bg-[#FF0000]' },
-    { icon: Instagram, href: 'https://www.instagram.com/firstlovecenter', label: 'Instagram', bgColor: 'bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF]' },
-    { icon: Twitter, href: 'https://x.com/FirstLoveCenter', label: 'Twitter', bgColor: 'bg-[#1DA1F2]' },
-  ];
 
   const quickLinks = [
     { name: 'About Us', path: '/#who-we-are' },
@@ -58,7 +52,7 @@ const Footer = () => {
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-8 gap-y-12 mb-16">
           {/* Column 1 - About & Social */}
-          <div className="lg:col-span-3 space-y-6 animate-on-scroll opacity-0 translate-y-10 [transition-delay:100ms]">
+          <div className="lg:col-span-3 space-y-6">
             {/* Logo */}
             <div className="w-20 h-20 relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
@@ -83,26 +77,7 @@ const Footer = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex gap-3 pt-2">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative"
-                  aria-label={social.label}
-                >
-                  <div className={`w-9 h-9 ${social.bgColor} rounded flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg`}>
-                    <social.icon className="w-4 h-4 text-white" />
-                  </div>
-                  {/* Tooltip */}
-                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                    {social.label}
-                  </span>
-                </a>
-              ))}
-            </div>
+            <div className="pt-2"><SocialLinks /></div>
           </div>
 
           {/* Column 2 - Quick Links */}

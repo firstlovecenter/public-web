@@ -2,6 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Brand artwork keeps its own colours, proportions, and clear space in every state. */
+.youtube-brand {
+  display: inline-flex;
+  width: 64px;
+  height: 60px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  background: #181818;
+}
+
+.youtube-brand-icon {
+  height: 44.561313px;
+  width: auto;
+  max-width: none;
+  flex: none;
+}
+
+.youtube-brand-music {
+  height: 28px;
+  width: 28px;
+  max-width: none;
+  flex: none;
+}
+
+.social-brand-link {
+  display: inline-flex;
+  width: 64px;
+  height: 60px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  background: #181818;
+  color: white;
+  border-radius: 4px;
+}
+
+.social-brand-link:hover {
+  outline: 1px solid #737373;
+  outline-offset: 2px;
+}
+
+/* Navigation uses bare marks; the other social rows retain their tiles. */
+.social-links-navigation .social-brand-link {
+  width: 44px;
+  border-radius: 0;
+  background: transparent;
+}
+
+.social-links-navigation .social-brand-link[data-platform="youtube"] {
+  width: 64px;
+}
+
+.social-links-navigation .youtube-brand {
+  background: transparent;
+}
+
+.social-links-navigation .social-brand-link:hover {
+  outline: none;
+}
+
+.social-links-navigation .social-brand-link svg {
+  color: #b8b8c0;
+  transition: color 150ms ease;
+}
+
+.social-links-navigation .social-brand-link:hover svg,
+.social-links-navigation .social-brand-link:focus-visible svg {
+  color: white;
+}
+
+.youtube-attribution {
+  display: inline-flex;
+  align-items: center;
+  padding-right: 16px;
+  border-radius: 4px;
+  background: #181818;
+  color: white;
+}
+
 @layer base {
   * {
     margin: 0;
