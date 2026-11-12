@@ -62,3 +62,5 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
         if: success()
+        # The SLACK_WEBHOOK secret 404s (webhook revoked); a notification must never fail a deploy.
+        continue-on-error: true
