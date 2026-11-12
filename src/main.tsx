@@ -2,9 +2,9 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
-import { loadAnalyticsAfterInteraction } from './lib/analytics.ts';
+import { loadAnalytics } from './lib/analytics.ts';
 
-loadAnalyticsAfterInteraction();
+loadAnalytics();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

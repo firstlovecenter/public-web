@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
 interface Window {
-  dataLayer: unknown[][];
+  dataLayer: unknown[];
   gtag: (...args: unknown[]) => void;
 }
