@@ -29,12 +29,37 @@ const ScrollToTop = () => {
   return null;
 };
 
+const SITE_NAME = 'First Love Church';
+const HOME_TITLE = 'First Love Church - A Global Vibrant Youth Church Full of First Love for the Lord';
+
+/** Per-route tab titles, so search results and analytics can tell the pages apart.
+ *  /terms and /privacy set their own via LegalPage; /give redirects off-site. */
+const ROUTE_TITLES: Record<string, string> = {
+  '/': HOME_TITLE,
+  '/global': `Global | ${SITE_NAME}`,
+  '/salvation': `Salvation | ${SITE_NAME}`,
+  '/get-involved': `Get Involved | ${SITE_NAME}`,
+  '/events': `Events | ${SITE_NAME}`,
+  '/connect': `Connect | ${SITE_NAME}`,
+  '/location': `Location | ${SITE_NAME}`,
+};
+
+const RouteTitle = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    if (pathname === '/terms' || pathname === '/privacy' || pathname === '/give') return;
+    const path = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+    document.title = ROUTE_TITLES[path] ?? `Page not found | ${SITE_NAME}`;
+  }, [pathname]);
+  return null;
+};
+
 const MainContent = () => {
   return <main><Hero /><About /><Founder /><FirstLoveChannel /><DagSermons /><FirstLoveMusic /><HealingJesus /></main>;
 };
 
 function App() {
-  return <Router><ScrollToTop /><div className="min-h-screen overflow-hidden bg-black"><Navbar /><Suspense fallback={<PageLoader />}><Routes><Route path="/" element={<MainContent />} /><Route path="/global" element={<Global />} /><Route path="/salvation" element={<Salvation />} /><Route path="/get-involved" element={<GetInvolved />} /><Route path="/events" element={<Events />} /><Route path="/connect" element={<Connect />} /><Route path="/location" element={<Location />} /><Route path="/give" element={<RedirectToGive />} /><Route path="/terms" element={<TermsOfUse />} /><Route path="/privacy" element={<PrivacyPolicy />} /><Route path="*" element={<NotFound />} /></Routes></Suspense><Footer /></div></Router>;
+  return <Router><ScrollToTop /><RouteTitle /><div className="min-h-screen overflow-hidden bg-black"><Navbar /><Suspense fallback={<PageLoader />}><Routes><Route path="/" element={<MainContent />} /><Route path="/global" element={<Global />} /><Route path="/salvation" element={<Salvation />} /><Route path="/get-involved" element={<GetInvolved />} /><Route path="/events" element={<Events />} /><Route path="/connect" element={<Connect />} /><Route path="/location" element={<Location />} /><Route path="/give" element={<RedirectToGive />} /><Route path="/terms" element={<TermsOfUse />} /><Route path="/privacy" element={<PrivacyPolicy />} /><Route path="*" element={<NotFound />} /></Routes></Suspense><Footer /></div></Router>;
 }
 
 export default App;
